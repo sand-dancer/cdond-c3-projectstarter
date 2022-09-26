@@ -180,6 +180,9 @@ jobs:
             "Name=tag-value,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
             --query 'Reservations[*].Instances[*].[PublicIpAddress]' \
             --output text >> ~/project/.circleci/ansible/inventory.txt
+            # Show the IP address
+            echo "Showing inventory file:"
+            cat ~/project/.circleci/ansible/inventory.txt
       - persist_to_workspace:
           root: ~/
           paths:
@@ -195,7 +198,7 @@ jobs:
       # Add ssh keys with fingerprint
       # attach workspace
       - checkout
-      - run: yum install -y tar gzip
+      #- run: yum install -y tar gzip
       - add_ssh_keys:
           # You can get this ID in the section where you registered the SSH Key
           fingerprints: [ "83:11:14:1d:62:f3:c4:de:28:88:f9:85:30:c2:d4:0e" ]
