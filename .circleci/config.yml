@@ -197,16 +197,24 @@ jobs:
       # Checkout code from git
       # Add ssh keys with fingerprint
       # attach workspace
+      - checkout
+      - run: yum install -y tar gzip
+      - add_ssh_keys:
+          # You can get this ID in the section where you registered the SSH Key
+          fingerprints: [ "83:11:14:1d:62:f3:c4:de:28:88:f9:85:30:c2:d4:0e" ]
+      - attach_workspace:
+          at: ~/
       - run:
           name: Install dependencies
           command: |
-            # Your code here
-            exit 1
+            # Install Ansible
+            apk add --update ansible
       - run:
           name: Configure server
           command: |
-            # Your code here
-            exit 1
+            command: |
+            # Your command
+            ansible-playbook -i inventory configure-server.yaml
       # Here's where you will add some code to rollback on failure      
 
   run-migrations:
