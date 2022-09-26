@@ -198,7 +198,8 @@ jobs:
   configure-infrastructure:
     docker:
       # Docker image here that supports Ansible
-      - image: python:3.7-alpine3.11
+      #- image: python:3.7-alpine3.11
+      - image: python:3:11-rc-alpine
       #- image: amazon/aws-cli
       #- image: prooph/ansible-aws-cli
     steps:
