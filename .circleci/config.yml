@@ -215,8 +215,11 @@ jobs:
           command: |
             command: |
             # Your command
-            cd .circleci/ansible/
-            ansible-playbook -i inventory configure-server.yaml
+            echo "ls -al"
+            ls -al
+            #echo "cd .circleci/ansible/"
+            #cd .circleci/ansible/
+            ansible-playbook -i project/.circleci/ansible/inventory.txt .circleci/ansible/configure-server.yaml
       # Here's where you will add some code to rollback on failure      
 
   run-migrations:
