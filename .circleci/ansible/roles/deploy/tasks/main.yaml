@@ -1,0 +1,26 @@
+#update apt packages
+---
+
+# Create a directory
+- name: "Create the folder"
+  file:
+    path: ~/backend
+    state: directory
+
+# Copy the artifact to the new dir
+- name: "Copy artifact"
+  template:
+    src: artifact.tar.gz
+    dest: ~/backend
+
+# Unpack the artifact
+- name: "Decompress artifact"
+  shell: |
+    cd ~/backend
+    tar -xvzf artifact.tar.gz
+
+# Run it all
+- name: "Run it all"
+  shell: |
+    cd ~/backend
+    pm2 start npm --name backend
