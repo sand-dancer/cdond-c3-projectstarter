@@ -250,9 +250,9 @@ jobs:
           name: Install dependencies
           command: |
             # your code here
-            #apk add --update ansible
-            pip3 install awscli
-            pip3 install npm
+            apk add --update ansible curl rsync openssh nodejs npm
+            pip install awscli
+            #pip3 install npm
       - run:
           name: Run migrations
           command: |
@@ -288,9 +288,9 @@ jobs:
           name: Install dependencies
           command: |
             # your code here
-            #apk add --update ansible
-            pip3 install awscli
-            pip3 install npm
+            apk add --update ansible curl rsync openssh nodejs npm
+            #pip3 install awscli
+            #pip3 install npm
       - run:
           name: Get backend url
           command: |
