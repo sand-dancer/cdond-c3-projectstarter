@@ -237,7 +237,7 @@ jobs:
   run-migrations:
     docker:
       # Docker image here that supports NodeJS
-      - image: circleci/node:13.8.0
+      - image: python:3.11-rc-alpine
     steps:
       # Checkout code from git
       - checkout
@@ -252,6 +252,7 @@ jobs:
             # your code here
             #apk add --update ansible
             pip3 install awscli
+            pip3 install npm
       - run:
           name: Run migrations
           command: |
@@ -262,7 +263,7 @@ jobs:
             npm run migrations > ~/project/backend/migrations_dump.txt
             exit 1
       - run:
-          name: Send migration results to memstash
+          name: Send migration results to kvdb
           command: |
             # Your code here
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
@@ -277,7 +278,7 @@ jobs:
   deploy-frontend:
     docker:
       # Docker image here that supports AWS CLI
-      - image: circleci/node:13.8.0
+      - image: python:3.11-rc-alpine
     steps:
       # Checkout code from git
       - checkout
@@ -289,6 +290,7 @@ jobs:
             # your code here
             #apk add --update ansible
             pip3 install awscli
+            pip3 install npm
       - run:
           name: Get backend url
           command: |
