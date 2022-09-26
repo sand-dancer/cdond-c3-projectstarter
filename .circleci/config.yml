@@ -241,6 +241,9 @@ jobs:
     steps:
       # Checkout code from git
       - checkout
+      - add_ssh_keys:
+          # You can get this ID in the section where you registered the SSH Key
+          fingerprints: [ "83:11:14:1d:62:f3:c4:de:28:88:f9:85:30:c2:d4:0e" ]
       - attach_workspace:
           at: ~/
       - run:
@@ -270,7 +273,7 @@ jobs:
             exit 1
      # Here's where you will add some code to rollback on failure      
       - destroy-environment
-      -
+
   deploy-frontend:
     docker:
       # Docker image here that supports AWS CLI
