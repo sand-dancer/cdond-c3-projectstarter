@@ -1,0 +1,29 @@
+#update apt packages
+---
+- name: "update apt packages."
+  become: yes
+  apt:
+    update_cache: yes
+
+#upgrade packages
+- name: "upgrade packages"
+  become: yes
+  apt:
+    upgrade: yes
+
+#install dependencies, such as NodeJS and NPM
+- name: "install deps"
+  become: yes
+  apt:
+    name: 
+      - nodejs
+      - npm
+    state: latest
+    update_cache: yes
+
+#install pm2
+- name: "install pm2"
+  npm:
+    name: pm2
+    global: yes
+
