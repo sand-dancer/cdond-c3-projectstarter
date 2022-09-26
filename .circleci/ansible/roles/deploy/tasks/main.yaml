@@ -23,4 +23,4 @@
 - name: "Run it all"
   shell: |
     cd ~/backend
-    pm2 start npm --name backend
+    pm2 start npm --name backend -- start
