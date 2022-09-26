@@ -9,7 +9,7 @@
 
 # Copy the artifact to the new dir
 - name: "Copy artifact"
-  template:
+  copy:
     src: artifact.tar.gz
     dest: ~/backend
 
