@@ -160,7 +160,7 @@ jobs:
               --template-file .circleci/files/backend.yml \
               --tags project=udapeople \
                --stack-name "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" \
-               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"  
+               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"
       - run:
           name: Ensure front-end infrastructure exist
           command: |
@@ -177,7 +177,7 @@ jobs:
             ec2 describe-instances \
             --filters \
             "Name=instance-state-name,Values=running" \
-            "Name=tag-name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
+            "Name=tag-value,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
             --query 'Reservations[*].Instances[*].[PublicIpAddress]' \
             --output text >> ~/project/.circleci/ansible/inventory.txt
       - persist_to_workspace:
