@@ -215,8 +215,8 @@ jobs:
           command: |
             command: |
             # Your command
-            echo "ls -al"
-            ls -al
+            #echo "ls -al"
+            #ls -al
             #echo "cd .circleci/ansible/"
             #cd .circleci/ansible/
             ansible-playbook -i project/.circleci/ansible/inventory.txt .circleci/ansible/configure-server.yaml
