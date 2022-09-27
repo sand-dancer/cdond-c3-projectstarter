@@ -273,7 +273,9 @@ jobs:
             cd backend
             npm install
             # Run and save the migration output
-            npm run migrations > ~/project/backend/migrations_dump.txt
+            npm audit fix --audit-level=critical --force
+            npm run migrations
+            #npm run migrations > ~/project/backend/migrations_dump.txt
       - run:
           name: Send migration results to kvdb
           command: |
