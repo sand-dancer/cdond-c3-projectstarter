@@ -451,7 +451,7 @@ jobs:
     steps:
       # Checkout code from git
       - run:
-          name: Get old stack workflow id
+          name: Delete old bucket and stack
           command: |
             # your code here
             # Fetch the Old workflow ID
@@ -465,9 +465,6 @@ jobs:
             --stack-status-filter CREATE_COMPLETE --no-paginate --output text))
             echo Stack names: "${STACKS[@]}"
 
-      - run:
-          name: Remove old stacks and files
-          command: |
             # You can use any condition like:
             # if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
             # if [[ "${OldWorkflowID}" =~ "${STACKS[@]}"  ]]
