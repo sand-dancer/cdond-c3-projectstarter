@@ -272,6 +272,10 @@ jobs:
             #apk add --update ansible curl rsync openssh nodejs npm
             #pip install awscli
       - run:
+          name: Install nvm
+          command: |
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+      - run:
           name: Run migrations
           command: |
             # Your code here
