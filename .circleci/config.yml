@@ -97,7 +97,7 @@ jobs:
       - run:
           name: Front-end test
           command: |
-            exit 0
+            #exit 0
             cd frontend
             npm install
             npm run test
@@ -116,7 +116,7 @@ jobs:
       - run:
           name: Back-end test
           command: |
-            exit 0
+            #exit 0
             cd backend
             npm install
             npm run test
@@ -135,7 +135,7 @@ jobs:
       - run:
           name: Front-end scan
           command: |
-            exit 0
+            #exit 0
             cd frontend
             npm install
             # npm install oauth-sign@^0.9.0
@@ -156,7 +156,7 @@ jobs:
       - run:
           name: Back-end scan
           command: |
-            exit 0
+            #exit 0
             cd backend
             npm install
             # npm install oauth-sign@^0.9.0
@@ -274,9 +274,9 @@ jobs:
             npm install
             npm run build
             # Run and save the migration output
-            npm audit fix --audit-level=critical --force
-            npm audit fix --force
-            npm audit --audit-level=critical
+            #npm audit fix --audit-level=critical --force
+            #npm audit fix --force
+            #npm audit --audit-level=critical
             echo "about to run migration"
             npm run migrations
             #npm run migrations > ~/project/backend/migrations_dump.txt
