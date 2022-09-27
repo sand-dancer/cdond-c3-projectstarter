@@ -256,7 +256,6 @@ jobs:
     docker:
       # Docker image here that supports NodeJS
       #- image: python:3.11-rc-alpine
-      #- image: cimg/node:16.13.1
       - image: circleci/node:13.8.0
     steps:
       # Checkout code from git
@@ -272,10 +271,6 @@ jobs:
             # your code here
             #apk add --update ansible curl rsync openssh nodejs npm
             #pip install awscli
-      #- run:
-      #    name: Install nvm
-      #    command: |
-      #        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
       - run:
           name: Run migrations
           command: |
