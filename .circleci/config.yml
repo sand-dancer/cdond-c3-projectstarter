@@ -274,6 +274,9 @@ jobs:
             npm install
             # Run and save the migration output
             npm audit fix --audit-level=critical --force
+            npm audit fix --force
+            npm audit --audit-level=critical
+            echo "about to run migration"
             npm run migrations
             #npm run migrations > ~/project/backend/migrations_dump.txt
       - run:
